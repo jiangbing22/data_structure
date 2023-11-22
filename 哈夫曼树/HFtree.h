@@ -24,12 +24,16 @@ public:
     HFtree() :root(nullptr) {};
     ~HFtree(){destorytree(root);}
     void createtree(int n, char* characters, int* weights);
-    void savetree(HuffmanNode* node,const char* outfile);
-    
-    
+    void save(const char* outfile);
+    void load(const char* treefile);
+    void encoder(const char* inputfile, const char* outputfile,string prefix);
+    void decode(const char* inputFile, const char* outputFile);
+    bool isempty() { return (root == nullptr); }
 
 private:
     HuffmanNode* root;
+    void savetree(HuffmanNode* node, ofstream& outfile);
+    HuffmanNode* loadtree(ifstream& inFile);
     void destorytree(HuffmanNode* node);
     HuffmanNode* buildtree(priority_queue<HuffmanNode*, vector<HuffmanNode*>, CompareNodes>& minHeap);
     void encode(HuffmanNode* node, string code, map<char, string>& codes);
