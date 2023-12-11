@@ -28,36 +28,36 @@ int main() {
             cout << "输入要插入的节点值" << endl;
             int temp;
             cin >> temp;
-            tree.insert_node(tree.root, temp);
+            tree.insert_node(temp);
 
             break;
         case 2:
             // 前序遍历递归算法
-            tree.r_preordered(tree.root, printnode);
+            tree.r_preordered();
             break;
         case 3:
-            tree.f_preordered(tree.root, printnode);
+            tree.f_preordered();
             break;
         case 4:
-            tree.r_inordered(tree.root, printnode);
+            tree.r_inordered();
             break;
         case 5:
-            tree.f_inordered(tree.root, printnode);
+            tree.f_inordered();
             break;
         case 6:
-            tree.r_postordered(tree.root, printnode);
+            tree.r_postordered();
             break;
         case 7:
-            tree.f_postordered(tree.root, printnode);
+            tree.f_postordered();
             break;
         case 8:
-            tree.get_height(tree.root);
+            std::cout<<"树的高度为:" << tree.get_height();
             break;
         case 9:
-            tree.count_leaves(tree.root);
+            std::cout<<"叶子的数量为:" << tree.count_leaves();
             break;
         case 10:
-            tree.print_trees(tree.root, printnode);
+            tree.print_trees();
             break;
         case 11:
             // 退出

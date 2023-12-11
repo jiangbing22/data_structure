@@ -1,3 +1,9 @@
 ﻿  main.cpp
-C:\Users\50513\Documents\GitHub\data_structure\二叉树健康系统\Btree.hpp(292): warning C4715: “Btree<int>::insert_node”: 不是所有的控件路径都返回值
-  二叉树健康系统.vcxproj -> C:\Users\50513\Documents\GitHub\data_structure\二叉树健康系统\x64\Debug\二叉树健康系统.exe
+C:\Users\xinwei\Desktop\数据结构\二叉树健康系统\Btree.hpp(117,1): error C1001: 内部编译器错误。
+C:\Users\xinwei\Desktop\数据结构\二叉树健康系统\Btree.hpp(117,1): error C1001: (编译器文件“D:\a\_work\1\s\src\vctools\Compiler\CxxFE\sl\p1\c\error.h”，第 1291 行)
+C:\Users\xinwei\Desktop\数据结构\二叉树健康系统\Btree.hpp(117,1): error C1001:  要解决此问题，请尝试简化或更改上面所列位置附近的程序。
+C:\Users\xinwei\Desktop\数据结构\二叉树健康系统\Btree.hpp(117,1): error C1001: 如果可以，请在此处提供重现步骤: https://developercommunity.visualstudio.com 
+C:\Users\xinwei\Desktop\数据结构\二叉树健康系统\Btree.hpp(117,1): error C1001: 请选择 Visual C++
+C:\Users\xinwei\Desktop\数据结构\二叉树健康系统\Btree.hpp(117,1): error C1001: “帮助”菜单上的“技术支持”命令，或打开技术支持帮助文件来获得详细信息。
+  (编译源文件“main.cpp”)
+  

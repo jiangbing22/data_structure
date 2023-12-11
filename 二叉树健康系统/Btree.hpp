@@ -3,6 +3,7 @@
 #include<stack>
 #include<algorithm>
 #include<iostream>
+
 template<class T>
 class node
 {
@@ -15,6 +16,11 @@ public:
 
 };
 template<class T>
+void printvalue(node<T>* p)
+{
+	std::cout << p->data << std::endl;
+}
+template<class T>
 class Btree
 {
 public:
@@ -24,8 +30,59 @@ public:
 	Btree(Btree<T>& s);
 	~Btree();
 	bool isempty() { return (root == nullptr) ? false : true; }
+	void levelordered()
+	{
+		levelordered(&printvalue <T>);
+	}
+	void r_preordered()
+	{
+		r_preordered(root, &printvalue<T>);
+	}
+	void r_postordered()
+	{
+		r_postordered(root, &printvalue<T>);
+	}
+	void r_inordered()
+	{
+		r_inordered(root, &printvalue);
+	}
+	void f_preordered()
+	{
+		f_preordered(root, &printvalue);
+	}
+	void f_inordered()
+	{
+		f_inordered(root, &printvalue);
+	}
+	void f_postordered()
+	{
+		f_postordered(root, &printvalue);
+	}
+	int get_height()
+	{
+		return get_height(root);
+	}
+	int count_leaves()
+	{
+		return count_leaves(root);
+	}
+	void print_trees()
+	{
+		print_trees(root, &printvalue);
+	}
+	void insert_node(T a)
+	{
+		root=insert_node(root, a);
+	}
+
+
+	
+
+protected:
+	node<T>* parent(node<T>* subtree, node<T>* current);
+	T refvalue;
 	void levelordered(void (*visit)(node<T>* p));
-	void r_preordered(node<T>* current,void (*visit)(node<T>* p));
+	void r_preordered(node<T>* current, void (*visit)(node<T>* p));
 	void r_postordered(node<T>* current, void (*visit)(node<T>* p));
 	void r_inordered(node<T>* current, void (*visit)(node<T>* p));
 	void f_preordered(node<T>* current, void(*visit)(node<T>* p));
@@ -33,16 +90,8 @@ public:
 	void f_postordered(node<T>* current, void(*visit)(node<T>* p));
 	int get_height(node<T>* current);
 	int count_leaves(node<T>* current);
-	void print_trees(node<T>* current,void (*visit)(node<T>* p));
+	void print_trees(node<T>* current, void (*visit)(node<T>* p));
 	node<T>* insert_node(node<T>* root, T value);
-	node<T> * parent(node<T>* current)
-	{
-		return (root == nullptr || root == current) ? nullptr : parent(root, current);
-	};
-
-protected:
-	node<T>* parent(node<T>* subtree, node<T>* current);
-	T refvalue;
 
 
 	
@@ -289,6 +338,7 @@ node<T>* Btree<T>::insert_node(node<T>* root, T value)
 	{
 		root->right = insert_node(root->right, value);
 	}
+	return root;
 }
 
 
