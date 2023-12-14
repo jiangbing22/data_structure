@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\50513\Documents\GitHub\data_structure\排序算法\main.cpp(22,11): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\50513\Documents\GitHub\data_structure\排序算法\main.cpp(34,11): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\50513\Documents\GitHub\data_structure\排序算法\main.cpp(58,38): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  排序算法.vcxproj -> C:\Users\50513\Documents\GitHub\data_structure\排序算法\x64\Debug\排序算法.exe
