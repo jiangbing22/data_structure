@@ -5,6 +5,18 @@ void adjacency_Matrix_Graph::create(char* filepath)
 	std::ifstream txt_reader(filepath);
 	if (!txt_reader.is_open()) {
 		std::cerr << "无法打开文件" << std::endl;
+		if (txt_reader.fail()) {
+			std::cerr << "打开文件失败：文件状态错误" << std::endl;
+		}
+		else if (txt_reader.bad()) {
+			std::cerr << "打开文件失败：流状态错误" << std::endl;
+		}
+		else if (txt_reader.eof()) {
+			std::cerr << "打开文件失败：到达文件末尾" << std::endl;
+		}
+		else {
+			std::cerr << "打开文件失败：未知原因" << std::endl;
+		}
 		return; // 返回错误代码
 	}
 	txt_reader >> vexnum >> arcnum;
@@ -27,10 +39,10 @@ void adjacency_Matrix_Graph::create(char* filepath)
 		std::cout << "图为无向图" << std::endl;
 	}
 	std::cout << "图的节点:";
+	index_to_vertex = new char[vexnum];
 	for (int i = 0; i < vexnum; i++)
 	{
-		index_to_vertex = new std::string[vexnum];
-		static std::string temp;
+		static char temp;
 		txt_reader >> temp;
 		index_to_vertex[i] = temp;
 		vertex[temp] = i;
@@ -38,7 +50,7 @@ void adjacency_Matrix_Graph::create(char* filepath)
 	}
 	for (int i = 0; i < arcnum; i++)
 	{
-		static std::string P1, P2;
+		static char P1, P2;
 		txt_reader >> P1>>P2;
 		matrix[vertex[P1]][vertex[P2]] = 1;
 	}
@@ -46,7 +58,7 @@ void adjacency_Matrix_Graph::create(char* filepath)
 
 }
 
-int adjacency_Matrix_Graph::first_nei(std::string x)
+int adjacency_Matrix_Graph::first_nei(char x)
 {
 	int index = vertex[x];
 	for (int i = 0; i < vexnum; i++)
@@ -59,7 +71,7 @@ int adjacency_Matrix_Graph::first_nei(std::string x)
 	return -1;
 }
 
-int adjacency_Matrix_Graph::next_nei(std::string x,std::string y)
+int adjacency_Matrix_Graph::next_nei(char x, char y)
 {
 	int index = vertex[x];
 	int yindex = vertex[y];
@@ -73,7 +85,7 @@ int adjacency_Matrix_Graph::next_nei(std::string x,std::string y)
 	return -1;
 }
 
-void adjacency_Matrix_Graph::BFS(std::string x)
+void adjacency_Matrix_Graph::BFS(char x)
 {
 	bool visited[Pnum] = { false };
 	int index = vertex[x];
@@ -102,7 +114,7 @@ void adjacency_Matrix_Graph::BFS(std::string x)
 	std::cout << std::endl;
 }
 
-void adjacency_Matrix_Graph::DFS(std::string x)
+void adjacency_Matrix_Graph::DFS(char x)
 {
 	bool visited[Pnum] = { false };
 	int index = vertex[x];
